@@ -1,10 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://coghxxfrgcahl"]
+[gd_scene load_steps=4 format=3 uid="uid://coghxxfrgcahl"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x2nxu"]
-radius = 0.4
-height = 1.8
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_vpbyj"]
+[ext_resource type="PackedScene" uid="uid://cftntindk5aex" path="res://character_body_3d.tscn" id="1_4qllt"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_qhayq"]
 map_width = 21
@@ -16,15 +12,6 @@ size = Vector2(20, 20)
 
 [node name="level" type="Node3D"]
 
-[node name="Player_body" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.46876, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player_body"]
-shape = SubResource("CapsuleShape3D_x2nxu")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player_body"]
-mesh = SubResource("CapsuleMesh_vpbyj")
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.939907, 0.34143, 0, -0.34143, 0.939907, 0, 3.42199, 4.6761)
 
@@ -35,3 +22,6 @@ shape = SubResource("HeightMapShape3D_qhayq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ground"]
 mesh = SubResource("PlaneMesh_6aek4")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_4qllt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12197, 0)
