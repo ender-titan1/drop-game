@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://coghxxfrgcahl"]
 
-[ext_resource type="PackedScene" uid="uid://b65wrq3vnam46" path="res://Player.tscn" id="1_nrebc"]
+[ext_resource type="PackedScene" uid="uid://b65wrq3vnam46" path="res://src/Player.tscn" id="1_nrebc"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_qhayq"]
 map_width = 21
