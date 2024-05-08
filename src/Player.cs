@@ -6,20 +6,27 @@ using System;
 ///   but modify it a little 
 ///		- Szymon
 /// </summary>
+
+///<edit_1>
+///    I will try to implement w s d a keys into the program
+///    PS. why are we writing this in Html format
+///    Daniil
+///</edit_1>
+
 public partial class Player : CharacterBody3D
 {
 	[Export]
-	public float Speed = 5.0f;
+	public float Speed = 8.0f;
 
 	[Export]
-	public float JumpVelocity = 4.5f;
+	public float JumpVelocity = 6f;
 
 	[Export]
 	public SpringArm3D CameraSpringArm;
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
-
+	
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector3 velocity = Velocity;
@@ -34,6 +41,7 @@ public partial class Player : CharacterBody3D
 
 		// Get the input direction and handle the movement/deceleration.
 		Vector2 inputDir = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+		// do we need the vector_2 inputs
 		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
 
 		direction = direction.Rotated(Vector3.Up, CameraSpringArm.Rotation.Y).Normalized();
